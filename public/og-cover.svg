@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.4" fill="rgba(255,255,255,0.55)"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#ffd1dc"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <g shape-rendering="crispEdges" transform="translate(500 120) scale(13)">
+    <g fill="#ff5d8f">
+      <rect x="2" y="3" width="2" height="3"/><rect x="5" y="2" width="2" height="3"/>
+      <rect x="9" y="2" width="2" height="3"/><rect x="12" y="3" width="2" height="3"/>
+    </g>
+    <g fill="#ff8fa3">
+      <rect x="4" y="7" width="8" height="5"/><rect x="3" y="8" width="10" height="3"/>
+      <rect x="5" y="12" width="6" height="1"/>
+    </g>
+  </g>
+  <text x="600" y="440" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif"
+        font-size="72" font-weight="700" fill="#43242f">像素萌宠乐园</text>
+  <text x="600" y="500" text-anchor="middle" font-family="ui-monospace, monospace"
+        font-size="30" letter-spacing="6" fill="#ff5d8f">PIXEL PET PARK</text>
+  <text x="600" y="560" text-anchor="middle" font-family="ui-monospace, monospace"
+        font-size="26" letter-spacing="3" fill="#8d5568">www.w11nb.com</text>
+</svg>

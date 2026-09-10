@@ -1,0 +1,126 @@
+/* ================= 像素萌宠乐园 · 动效系统 ================= */
+
+/* 价格跳动闪烁（亮色版：粉扑扑的光晕） */
+@keyframes flashUp {
+  0% { background-color: hsl(var(--up) / 0.22); box-shadow: 0 0 0 3px hsl(var(--up) / 0.25); }
+  100% { background-color: transparent; box-shadow: none; }
+}
+@keyframes flashDown {
+  0% { background-color: hsl(var(--down) / 0.18); box-shadow: 0 0 0 3px hsl(var(--down) / 0.2); }
+  100% { background-color: transparent; box-shadow: none; }
+}
+.flash-up { animation: flashUp 0.9s ease-out; border-radius: 8px; }
+.flash-down { animation: flashDown 0.9s ease-out; border-radius: 8px; }
+
+/* 状态 LED 呼吸（1.4s） */
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px 1px currentColor; }
+  50% { opacity: 0.35; box-shadow: 0 0 2px 0 currentColor; }
+}
+.led-pulse { animation: ledPulse 1.4s ease-in-out infinite; }
+
+/* 行情跑马灯（暂停于 hover） */
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: tickerScroll 48s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* 小窝进入：像素式逐格弹入 */
+@keyframes plotIn {
+  0% { opacity: 0; transform: translateY(10px) scale(0.92); }
+  60% { transform: translateY(-2px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.plot-in { animation: plotIn 0.35s steps(4) both; }
+
+/* 开心待机：两帧式蹦跳 */
+@keyframes spriteIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.sprite-idle { animation: spriteIdle 1.1s steps(2) infinite; }
+
+/* 打盹：缓慢起伏的呼吸 */
+@keyframes spriteSleep {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(1px) scaleY(0.97); }
+}
+.sprite-sleep { animation: spriteSleep 2.6s ease-in-out infinite; transform-origin: bottom center; }
+
+/* 委屈/大哭：无精打采地晃 */
+@keyframes spriteWilt {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.sprite-wilt { animation: spriteWilt 3.2s ease-in-out infinite; transform-origin: bottom center; }
+
+/* 开心到起飞的闪光 */
+@keyframes sparkleBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+.sparkle { animation: sparkleBlink 1s steps(2) infinite; }
+.sparkle-delay { animation: sparkleBlink 1s steps(2) 0.5s infinite; }
+
+/* 吉祥物出场 */
+@keyframes mascotEnter {
+  0% { opacity: 0; transform: scale(0.6) translateY(6px); }
+  60% { transform: scale(1.08) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.mascot-enter { animation: mascotEnter 0.4s steps(5) both; }
+
+/* 预警触发：蜂蜜金光圈脉冲 */
+@keyframes alertGlow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--gold) / 0.45); }
+  50% { box-shadow: 0 0 0 5px hsl(var(--gold) / 0); }
+}
+.alert-glow { animation: alertGlow 1.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .sprite-idle, .sprite-sleep, .sprite-wilt, .sparkle, .sparkle-delay,
+  .led-pulse, .alert-glow {
+    animation: none;
+  }
+}
+
+/* ============ 每日复盘 · 科技感终端样式 ============ */
+
+/* 细网格底纹 + 顶部微弱扫描光 */
+.tech-surface {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.tech-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 60% at 50% 0%, rgba(34, 211, 238, 0.09), transparent 70%);
+}
+.tech-surface > * {
+  position: relative;
+}
+
+/* 终端状态指示点 */
+@keyframes techDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px 1px currentColor; }
+  50% { opacity: 0.4; box-shadow: 0 0 3px 0 currentColor; }
+}
+.tech-dot {
+  color: #22d3ee;
+  animation: techDot 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-dot { animation: none; }
+}

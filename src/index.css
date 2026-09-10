@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 像素萌宠乐园：棉花糖粉 + 深莓果文字 */
+    --background: 350 100% 91%;         /* #ffd1dc 招牌粉 */
+    --foreground: 336 30% 20%;          /* #43242f 深莓果 */
+    --card: 0 0% 100%;                  /* #ffffff */
+    --card-foreground: 336 30% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 336 30% 20%;
+    --primary: 339 100% 68%;            /* #ff5d8f 热粉 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 100% 96%;          /* #ffe9f0 */
+    --secondary-foreground: 336 30% 20%;
+    --muted: 340 100% 96%;
+    --muted-foreground: 340 25% 44%;    /* #8d5568 深雾粉，保证 4.5:1 对比度 */
+    --accent: 340 100% 96%;
+    --accent-foreground: 336 30% 20%;
+    --destructive: 351 100% 68%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 342 100% 88%;             /* #ffc2d4 软粉描边 */
+    --input: 342 100% 88%;
+    --ring: 339 100% 68%;
+    --radius: 0.75rem;
+
+    --up: 351 100% 68%;                 /* 涨 #ff5d73 莓红 */
+    --down: 158 64% 38%;                /* 跌 #23a36b 抹茶绿 */
+    --gold: 38 92% 50%;                 /* #f5a623 蜂蜜金 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    background: hsl(var(--background));
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "JetBrains Mono", ui-monospace, "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", monospace;
+    font-style: normal;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  .font-pixel {
+    font-family: "Press Start 2P", "JetBrains Mono", monospace;
+  }
+}
+
+/* 像素渲染：边缘锐利 */
+.pixelated {
+  image-rendering: pixelated;
+  shape-rendering: crispEdges;
+}
+
+/* 波点纹理（白点点洒在粉色上） */
+.dotgrid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 1.2px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+/* 细滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
