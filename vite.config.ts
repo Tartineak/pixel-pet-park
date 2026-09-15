@@ -22,7 +22,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           charts: ['lightweight-charts'],
-          vendor: ['react', 'react-dom', 'react-router'],
+          vendor: ['react', 'react-dom'],
         },
       },
     },
